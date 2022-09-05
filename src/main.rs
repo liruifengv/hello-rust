@@ -57,4 +57,13 @@ fn main() {
     hosting::test_tuple();
     hosting::test_arr();
     aaa::show_struct();
+
+    let top_left = aaa::Point { x: 1.0, y: 2.0 };
+    let bottom_right = aaa::Point { x: 2.0, y: 15.0 };
+    let _rectangle = aaa::Rectangle {
+        top_left: top_left,
+        bottom_right: bottom_right,
+    };
+    let res = aaa::rect_area(_rectangle);
+    println!("res: {:?}", res)
 }

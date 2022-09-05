@@ -14,17 +14,17 @@ pub mod aaa {
     struct Pair(i32, f32);
 
     // A struct with two fields
-    struct Point {
-        x: f32,
-        y: f32,
+    pub struct Point {
+        pub x: f32,
+        pub y: f32,
     }
 
     // Structs can be reused as fields of another struct
-    struct Rectangle {
+    pub struct Rectangle {
         // A rectangle can be specified by where the top left and bottom right
         // corners are in space.
-        top_left: Point,
-        bottom_right: Point,
+        pub top_left: Point,
+        pub bottom_right: Point,
     }
 
     pub fn show_struct() {
@@ -67,5 +67,19 @@ pub mod aaa {
         let Pair(integer, decimal) = pair;
 
         println!("pair contains {:?} and {:?}", integer, decimal);
+    }
+
+    pub fn rect_area(_rectangle: Rectangle) -> f32 {
+        let Point {
+            x: left_edge,
+            y: top_edge,
+        } = _rectangle.top_left;
+
+        let Point {
+            x: right_edge,
+            y: bottom_edge,
+        } = _rectangle.bottom_right;
+
+        (right_edge - left_edge) * (bottom_edge - top_edge)
     }
 }
