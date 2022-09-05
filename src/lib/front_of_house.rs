@@ -66,12 +66,12 @@ pub mod hosting {
         println!("borrow the whole array as a slice");
         analyze_slice(&xs);
 
-        for i in 0..xs.len() + 1 { // OOPS, one element too far
-          match xs.get(i) {
-              Some(xval) => println!("{}: {}", i, xval),
-              None => println!("Slow down! {} is too far!", i),
-          }
-      }
-  
+        for i in 0..xs.len() + 1 {
+            // OOPS, one element too far
+            match xs.get(i) {
+                Some(xval) => println!("{}: {}", i, xval),
+                None => println!("Slow down! {} is too far!", i),
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 mod lib;
 
 use crate::lib::front_of_house::hosting;
+use crate::lib::structures::aaa;
 
 #[derive(Debug)]
 struct Structure(i32);
@@ -55,4 +56,19 @@ fn main() {
 
     hosting::test_tuple();
     hosting::test_arr();
+    aaa::show_struct();
+
+    let top_left = aaa::Point { x: 1.0, y: 2.0 };
+    let bottom_right = aaa::Point { x: 2.0, y: 15.0 };
+    let _rectangle = aaa::Rectangle {
+        top_left: top_left,
+        bottom_right: bottom_right,
+    };
+    let res = aaa::rect_area(_rectangle);
+    println!("res: {:?}", res);
+
+    // 不能复用 top_left 变量因为被移动到_rectangle 里了。给 Point 结构体加上 copy 和 clone 的宏
+    // https://doc.rust-lang.org/error-index.html#E0382
+    let res2 = aaa::square(top_left, 3.0);
+    println!("res2: {:?}", res2)
 }
