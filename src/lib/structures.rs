@@ -14,12 +14,14 @@ pub mod aaa {
     struct Pair(i32, f32);
 
     // A struct with two fields
+    #[derive(Debug,Copy,  Clone)]
     pub struct Point {
         pub x: f32,
         pub y: f32,
     }
 
     // Structs can be reused as fields of another struct
+    #[derive(Debug)]
     pub struct Rectangle {
         // A rectangle can be specified by where the top left and bottom right
         // corners are in space.
@@ -81,5 +83,16 @@ pub mod aaa {
         } = _rectangle.bottom_right;
 
         (right_edge - left_edge) * (bottom_edge - top_edge)
+    }
+
+    pub fn square(point: Point, number: f32) -> Rectangle {
+      let Point {x, y } = point;
+      Rectangle{
+        top_left: point,
+        bottom_right: Point {
+          x: x+number,
+          y: y+number,
+        }
+      }
     }
 }

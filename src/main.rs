@@ -65,5 +65,10 @@ fn main() {
         bottom_right: bottom_right,
     };
     let res = aaa::rect_area(_rectangle);
-    println!("res: {:?}", res)
+    println!("res: {:?}", res);
+
+    // 不能复用 top_left 变量因为被移动到_rectangle 里了。给 Point 结构体加上 copy 和 clone 的宏
+    // https://doc.rust-lang.org/error-index.html#E0382
+    let res2 = aaa::square(top_left, 3.0);
+    println!("res2: {:?}", res2)
 }
