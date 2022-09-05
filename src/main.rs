@@ -2,6 +2,7 @@
 mod lib;
 
 use crate::lib::front_of_house::hosting;
+use crate::lib::structures::aaa;
 
 #[derive(Debug)]
 struct Structure(i32);
@@ -55,4 +56,5 @@ fn main() {
 
     hosting::test_tuple();
     hosting::test_arr();
+    aaa::show_struct();
 }
