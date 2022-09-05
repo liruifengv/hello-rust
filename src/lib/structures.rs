@@ -14,7 +14,7 @@ pub mod aaa {
     struct Pair(i32, f32);
 
     // A struct with two fields
-    #[derive(Debug,Copy,  Clone)]
+    #[derive(Debug, Copy, Clone)]
     pub struct Point {
         pub x: f32,
         pub y: f32,
@@ -86,13 +86,13 @@ pub mod aaa {
     }
 
     pub fn square(point: Point, number: f32) -> Rectangle {
-      let Point {x, y } = point;
-      Rectangle{
-        top_left: point,
-        bottom_right: Point {
-          x: x+number,
-          y: y+number,
+        let Point { x, y } = point;
+        Rectangle {
+            top_left: point,
+            bottom_right: Point {
+                x: x + number,
+                y: y + number,
+            },
         }
-      }
     }
 }
