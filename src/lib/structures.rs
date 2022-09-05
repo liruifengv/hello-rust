@@ -33,5 +33,39 @@ pub mod aaa {
         let peter = Person { name, age };
         // Print debug struct
         println!("{:?}", peter);
+
+        let point: Point = Point { x: 10.3, y: 0.4 };
+        println!("point coordinates: ({}, {})", point.x, point.y);
+
+        // ... struct update 语法
+        let bottom_right = Point { x: 5.2, ..point };
+        println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
+        // 解构赋值
+        let Point {
+            x: left_edge,
+            y: top_edge,
+        } = point;
+
+        // 结构体的实现可以使用结构体
+        let _rectangle = Rectangle {
+            top_left: Point {
+                x: left_edge,
+                y: top_edge,
+            },
+            bottom_right: bottom_right,
+        };
+
+        // 定义一个 unit 结构体
+        let _unit = Unit;
+
+        // 定义一个元组结构体
+        let pair = Pair(1, 0.1);
+
+        // 获取元组结构体的字段
+        println!("pair contains {:?} and {:?}", pair.0, pair.1);
+        // 解构元组
+        let Pair(integer, decimal) = pair;
+
+        println!("pair contains {:?} and {:?}", integer, decimal);
     }
 }
