@@ -3,6 +3,7 @@ mod lib;
 
 use crate::lib::front_of_house::hosting;
 use crate::lib::structures::aaa;
+use crate::lib::enums::bbb;
 
 #[derive(Debug)]
 struct Structure(i32);
@@ -70,5 +71,20 @@ fn main() {
     // 不能复用 top_left 变量因为被移动到_rectangle 里了。给 Point 结构体加上 copy 和 clone 的宏
     // https://doc.rust-lang.org/error-index.html#E0382
     let res2 = aaa::square(top_left, 3.0);
-    println!("res2: {:?}", res2)
+    println!("res2: {:?}", res2);
+
+
+    let pressed = bbb::WebEvent::KeyPress('x');
+    // `to_owned()` creates an owned `String` from a string slice.
+    let pasted  = bbb::WebEvent::Paste("my text".to_owned());
+    let click   = bbb::WebEvent::Click { x: 20, y: 80 };
+    let load    = bbb::WebEvent::PageLoad;
+    let unload  = bbb::WebEvent::PageUnload;
+
+    bbb::inspect(pressed);
+    bbb::inspect(pasted);
+    bbb::inspect(click);
+    bbb::inspect(load);
+    bbb::inspect(unload);
+
 }
