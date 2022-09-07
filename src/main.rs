@@ -1,3 +1,4 @@
+mod closures;
 #[allow(dead_code)]
 mod lib;
 
@@ -38,4 +39,6 @@ fn main() {
     enums::inspect(click);
     enums::inspect(load);
     enums::inspect(unload);
+
+    closures::test_closure()
 }
